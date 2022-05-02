@@ -28,6 +28,7 @@ const index = require("./routes/index.routes");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth.routes");
+const { geoSearch } = require("./models/User.model");
 app.use("/auth", authRoutes);
 
 const profile = require('./routes/profile.routes');
