@@ -1,13 +1,37 @@
-<form action="/auth/login" method="POST">
+<form action="/auth/login" method="POST" >
    <label> Username
-      <input type="text" name="username">
+      <input type="text" name="username" placeholder="jonh.deer@ironhack.com">
    </label>
    <label> Password
-      <input type="password" name="password">
+      <input type="password" name="password" placeholder="********" minlength="8">
+      <span id="eye-on"><i class="fa-solid fa-eye" ></i></span>
+      <span  id="eye-off"><i class="fa-solid fa-eye-slash"></i></span>
    </label>
 
-   <button type="submit">Submit</button>
+   <button type="submit">Login</button>
 </form>
+
+<script>
+  const inputPass = document.getElementById("password")
+  const eyeOn = document.getElementById("eye-on")
+  const eyeOff = document.getElementById("eye-off")
+
+  eyeOff.style.display = "none"
+
+  eyeOn.addEventListener("click", () => {
+    inputPass.type = "text"
+    eyeOn.style.display = "none"
+    eyeOff.style.display = "inherit"
+  })
+  eyeOff.addEventListener("click", () => {
+    console.log('mostrar')
+    inputPass.type = "password"
+    eyeOff.style.display = "none"
+    eyeOn.style.display = "inherit"
+  })
+
+
+</script>
 
 {{#if errorMessage}}
    {{errorMessage}}
