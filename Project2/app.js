@@ -31,6 +31,21 @@ const authRoutes = require("./routes/auth.routes");
 const { geoSearch } = require("./models/User.model");
 app.use("/auth", authRoutes);
 
+const profile = require('./routes/profile.routes');
+app.use('/profile', profile);
+
+
+//i need a route for creating events 
+const eventCreate = require('./routes/createEvents.routes');
+app.use('/', eventCreate);
+
+
+
+// i also need a route to change profile info 
+const changeProfile = require('./routes/changeProfile.routes');
+app.use('/', changeProfile)
+
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
