@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const userSchema = require("../models/User.model")
 
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
@@ -22,7 +23,8 @@ router.get("/signup", (req, res) => {
 router.post("/signup", isLoggedOut, (req, res) => {
   console.log(req.body)
 
-  const { username, password } = req.body;
+  const { username,password,name,email } = req.body;
+
 
   if (!username) {
     return res.status(400).render("auth/signup", {
@@ -50,7 +52,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   */
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username }).then((found) => {
+  userSchema.findOne({ username }).then((found) => {
     // If the user is found, send the message username is taken
     if (found) {
       return res
@@ -64,15 +66,17 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((salt) => bcrypt.hash(password, salt))
       .then((hashedPassword) => {
         // Create a user and save it in the database
-        return User.create({
+        return userSchema.create({
           username,
           password: hashedPassword,
+          name,
+          email
         });
       })
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/auth/login");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {

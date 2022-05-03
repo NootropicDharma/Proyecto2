@@ -32,7 +32,7 @@ const { geoSearch } = require("./models/User.model");
 app.use("/auth", authRoutes);
 
 const profile = require('./routes/profile.routes');
-app.use('/profile', profile);
+app.use('/', profile);
 
 
 //i need a route for creating events 

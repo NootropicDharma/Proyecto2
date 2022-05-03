@@ -92,11 +92,24 @@ li{
   display: flex;
   width: 50%;
 }
+
+@keyframes Titulo {
+  0%{
+   margin-right: 100%;
+   position: absolute;
+
+  }
+  100%{
+    padding-left: 30px;
+  }
+}
 .divTittleSection1 h1{
+  position: relative;
   font-size: 65px;
   font-family: 'Roboto Slab', serif;
   padding-left:30px ;
   color: rgb(142, 144, 149);
+  animation: Titulo 3s ;
 }
 .divImgSection1{
   display: flex;

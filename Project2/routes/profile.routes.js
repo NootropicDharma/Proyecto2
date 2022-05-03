@@ -1,11 +1,12 @@
-const { post } = require('spotify-web-api-node/src/http-manager');
+
+const isLoggedIn = require('../middleware/isLoggedIn');
 const Event = require('../models/evento.model');
 
 const router = require('express').Router();
 
-router.get('/profile', (req, res)=>{
+router.get('/profile', isLoggedIn, (req, res)=>{
 
-        res.render('../views/profile/userProfile.hbs')
+        res.render('profile/userProfile')
 
 })
 
