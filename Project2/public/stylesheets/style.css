@@ -214,3 +214,22 @@ li{
   background-color: rgb(209, 203, 195);
 
 }
+
+.divprofile h1 {
+
+}
+
+.divprofile h2 {
+
+}
+
+.diveprofile h3 {
+  size: 20px
+}
+
+.divprofile img {
+  max-width: 50%;
+  height: 30%;
+  size: 20px;
+}
+

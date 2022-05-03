@@ -1,33 +1,33 @@
-
-=======
-
 const isLoggedIn = require('../middleware/isLoggedIn');
- 63919f506f9c66e5a4080bbbd8b058056c7871a5
+
 const Event = require('../models/evento.model');
 const User = require('../models/User.model')
 const router = require('express').Router();
 
 router.get('/profile', isLoggedIn, (req, res)=>{
-
-        res.render('profile/userProfile')
-
+        console.log(req.session.user)
+        const {name,email,username, favoritePlace, myEvents, Avatar}   = req.session.user
+        const user = {
+                name,
+                email,
+                username,
+                favoritePlace,
+                myEvents,
+                Avatar
+                }
+        res.render('profile/userProfile', user)
 })
 
-module.exports = router;;
 
-// router.get('/profile', (req, res)=>{
-//         User.find({req.session.})
-//         .then()
-//         const {name, email , Avatar, username} = req.body  
-        
-// })
+
+
 
 
 
 // router.get("/profile", (req, res) => {
 //         Event.find()
-//         .then(data => {
-//                 res.render("list of events", {data})
+//         .then(eventos => {
+//                 res.render("list of events", {eventos})
 //         })
 //         .catch(console.log)
 // })
