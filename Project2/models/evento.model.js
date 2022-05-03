@@ -9,7 +9,7 @@ const eventoSchema = new Schema({
 
     description: String,
 
-    eventTotal: Number,
+    
 
 },{timestamps:true});
 
