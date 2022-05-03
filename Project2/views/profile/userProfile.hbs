@@ -1,1 +1,42 @@
-<h1>Welcome to your profile {{name}} </h1>
+
+    <header >
+    <div class="divImagenLogo">
+        <img src="images/Splice.png" alt="Logo">
+    </div>
+    <div class="navHeader">
+        <nav>
+            <ul>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+
+
+<div class="divprofile">
+    <h1> Welcome <br/> {{name}}</h1>
+    
+    <img src={{Avatar}}/>
+    
+    <h2>{{username}}</h2>
+    
+    <h3>favoritePlaces: {{favoritePlace}}</h3>
+</div>
+
+
+
+    <button class="block"><a href="/profile/createEvent" style="text-decoration:none" > start a new event </a></button>
+
+
+
+
+{{!-- {{#each}}
+    <div>
+        <img={{eventos.eventImg}}>
+        <h1>{{eventos.name}}</h1>
+        <h2>{{eventos.description}}</h2>
+    </div>
+{{/each}} --}}
