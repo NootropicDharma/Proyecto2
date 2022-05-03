@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 =======
 
 const isLoggedIn = require('../middleware/isLoggedIn');
->>>>>>> 63919f506f9c66e5a4080bbbd8b058056c7871a5
+ 63919f506f9c66e5a4080bbbd8b058056c7871a5
 const Event = require('../models/evento.model');
 const User = require('../models/User.model')
 const router = require('express').Router();
@@ -12,6 +12,8 @@ router.get('/profile', isLoggedIn, (req, res)=>{
         res.render('profile/userProfile')
 
 })
+
+module.exports = router;;
 
 // router.get('/profile', (req, res)=>{
 //         User.find({req.session.})
@@ -33,6 +35,7 @@ router.get('/profile', isLoggedIn, (req, res)=>{
 
 
 module.exports = router;
+
 
 
 
