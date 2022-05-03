@@ -1,13 +1,6 @@
 const router = require("express").Router();
 //const Events = require('../models/evento.model')
 
-
-
-
-
-
-
-
 router.get('/profile/createEvent', (req,res)=>{
     res.render('profile/createEvent')
 })

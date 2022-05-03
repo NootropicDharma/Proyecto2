@@ -29,7 +29,7 @@
    </div>
    <div style="padding:15px 0;">
       <label> Password</label>
-      <input type="password" name="password">
+      <input type="password" name="password" minlength="8">
    </div>
    <div class="divButtonRegistrar" style="padding:15px 0;">
       <button  type="submit">Registrar</button>
@@ -40,10 +40,10 @@
    </div>
 </form>
 </section> 
-
-
 {{#if errorMessage}}
-   {{errorMessage}}
-{{/if}}
+<div class="divErrorMessage">
+   <p>{{errorMessage}}</p>
+</div>
 
+{{/if}}
 

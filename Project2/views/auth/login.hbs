@@ -20,13 +20,10 @@
       <label> Username</label>
       <input type="text" name="username">
    </div>
-   <div style="padding:15px 0;">
-      <label> Email</label>
-      <input type="email" name="email">   
-   </div>
+
    <div style="padding:15px 0;">
       <label> Password</label>
-      <input type="password" name="password">
+      <input type="password" name="password" minlength="8">
    </div>
    <div class="divButtonRegistrar" style="padding:15px 0;">
       <button style="width:30%"  type="submit">Iniciar Sesion</button>
@@ -40,7 +37,10 @@
 
 
 {{#if errorMessage}}
-   {{errorMessage}}
+<div class="divErrorMessage">
+   <p>{{errorMessage}}</p>
+</div>
+
 {{/if}}
 
 
