@@ -10,11 +10,11 @@ const userSchema = new Schema(
     },
 
     myEvents: [],
-    // avatar: {
-    //   type: String,
-    //   enum: ['https://preview.redd.it/ht9l2pelsjr51.png?width=552&format=png&auto=webp&s=aeb235be548b69e3476172b087dd39d619789980', 'https://www.dreamstime.com/cute-anime-girl-pixel-image-vector-illustration-image221609492'],
-    //   default: "https://portal.staralliance.com/imagelibrary/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"
-    // },
+ 
+    Avatar:{
+      type:String,
+      default:"https://portal.staralliance.com/imagelibrary/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"
+    },
     username: {
       type: String,
       required: true,
@@ -26,7 +26,7 @@ const userSchema = new Schema(
     },
 
     favoritePlace: [],
-    gastoIndividual: Number
+    
     
   },
   {

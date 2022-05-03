@@ -1,10 +1,15 @@
+<<<<<<< HEAD
+=======
+
+const isLoggedIn = require('../middleware/isLoggedIn');
+>>>>>>> 63919f506f9c66e5a4080bbbd8b058056c7871a5
 const Event = require('../models/evento.model');
 const User = require('../models/User.model')
 const router = require('express').Router();
 
-router.get('/profile', (req, res)=>{
+router.get('/profile', isLoggedIn, (req, res)=>{
 
-        res.render('../views/profile/userProfile.hbs')
+        res.render('profile/userProfile')
 
 })
 
