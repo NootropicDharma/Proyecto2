@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const userSchema = require("../models/User.model")
 
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
@@ -52,7 +51,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   */
 
   // Search the database for a user with the username submitted in the form
-  userSchema.findOne({ username }).then((found) => {
+  User.findOne({ username }).then((found) => {
     // If the user is found, send the message username is taken
     if (found) {
       return res
@@ -66,7 +65,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((salt) => bcrypt.hash(password, salt))
       .then((hashedPassword) => {
         // Create a user and save it in the database
-        return userSchema.create({
+        return User.create({
           username,
           password: hashedPassword,
           name,
