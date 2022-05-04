@@ -1,0 +1,43 @@
+
+<header >
+    <div class="divImagenLogo">
+        <img src="/images/Splice.png" alt="Logo">
+    </div>
+    <div class="navHeader">
+        <nav>
+            <ul>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="#">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+
+<h1>create new Event here</h1>
+
+
+<section class="section1Signup">
+    <h1>Event create</h1>
+<form class="formSignUp" action="/auth/signup" method="POST">
+    <div style="padding:15px 0;">
+        <input type="checkbox"  name="movie" value="">
+        <label for="movie"> Movie Event</label><br>
+        <input type="checkbox"  name="dining" value="">
+        <label for="dining"> Dining Event</label><br>
+        <input type="checkbox"  name="music" value="">
+        <label for="music"> Music Event</label><br>
+
+    </div>
+    <div style="padding:15px 0;">
+        <label> Users </label>
+        <input type="number" name="number">
+    </div>
+    
+    <div class="divButtonRegistrar" style="padding:15px 0;">
+        <button  type="submit">Create</button>
+    </div>
+    
+</form>
+</section> 

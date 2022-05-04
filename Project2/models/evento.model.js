@@ -8,6 +8,7 @@ const eventoSchema = new Schema({
     eventImg: String,
 
     description: String,
+
     
 
 },{timestamps:true});

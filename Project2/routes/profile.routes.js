@@ -1,6 +1,7 @@
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 const Event = require('../models/evento.model');
+
 const User = require('../models/User.model');
 const EventosCreados = require("../models/createdEvents");
 const router = require('express').Router();
@@ -14,6 +15,23 @@ router.get('/', isLoggedIn, (req, res)=>{
         })
         .catch(console.log())
   
+
+const User = require('../models/User.model')
+const router = require('express').Router();
+
+router.get('/', isLoggedIn, (req, res)=>{
+        console.log(req.session.user)
+        const {name,email,username, favoritePlace, myEvents, Avatar}   = req.session.user
+        const user = {
+                name,
+                email,
+                username,
+                favoritePlace,
+                myEvents,
+                Avatar
+                }
+        res.render('profile/userProfile', user)
+
 })
 
 

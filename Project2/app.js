@@ -38,6 +38,11 @@ const events = require("./routes/event.routes")
 app.use("/profile", events)
 
 
+//i need a route for creating events 
+const eventCreate = require('./routes/createEvents.routes');
+app.use('/', eventCreate);
+
+
 
 
 // i also need a route to change profile info 

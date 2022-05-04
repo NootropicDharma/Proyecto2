@@ -17,6 +17,7 @@
     <h1>Eventos</h1>
     <div class="divEvents">
         {{#each events}}
+
         <div id={{_id}} class="cardEvents" >
             <img id={{_id}} src={{eventImg}}>
             <p id={{_id}} style="font-size: 23px; height:28px;">{{name}}</p>
@@ -33,3 +34,13 @@
             </script>
     </div>
 </div>
+
+        <div class="cardEvents">
+            <img src={{eventImg}}>
+            <p style="font-size: 23px; height:28px;">{{name}}</p>
+            <p>{{description}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
