@@ -1,3 +1,4 @@
+
 <header >
    <div class="divImagenLogo">
       <a href="/"><img src="/images/logomonedas.png" alt="Logo"></a>
@@ -5,7 +6,7 @@
    <div class="navHeader">
       <nav>
          <ul>
-             <li><a href="/auth/login">Iniciar Sesion</a></li>
+            <li><a href="/auth/login">Iniciar Sesion</a></li>
             <li><a href="/auth/signup">Registrarse</a></li>
          </ul>
       </nav>
@@ -28,7 +29,7 @@
    </div>
    <div style="padding:15px 0;">
       <label> Password</label>
-      <input type="password" name="password">
+      <input type="password" name="password" minlength="8">
    </div>
    <div class="divButtonRegistrar" style="padding:15px 0;">
       <button  type="submit">Registrar</button>
@@ -39,8 +40,10 @@
    </div>
 </form>
 </section> 
-
-
 {{#if errorMessage}}
-   {{errorMessage}}
+<div class="divErrorMessage">
+   <p>{{errorMessage}}</p>
+</div>
+
 {{/if}}
+

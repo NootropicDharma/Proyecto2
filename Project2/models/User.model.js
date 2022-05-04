@@ -3,11 +3,31 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
+    name: String,
+    email: {
+      type: String, 
+      required: true
+    },
+
+    myEvents: [],
+ 
+    Avatar:{
+      type:String,
+      default:"https://portal.staralliance.com/imagelibrary/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"
+    },
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      required: true,
+      unique: true
     },
-    password: String,
+    password: {
+    type: String,
+    required: true,
+    },
+
+    favoritePlace: [],
+    
+    
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -15,6 +35,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const User = model("usuarios", userSchema);
 
 module.exports = User;

@@ -14,7 +14,7 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/signup", (req, res) => {
+router.get("/signup", isLoggedOut,(req, res) => {
   res.render("auth/signup");
 
 });
@@ -22,7 +22,8 @@ router.get("/signup", (req, res) => {
 router.post("/signup", isLoggedOut, (req, res) => {
   console.log(req.body)
 
-  const { username, password } = req.body;
+  const { username,password,name,email } = req.body;
+
 
   if (!username) {
     return res.status(400).render("auth/signup", {
@@ -67,12 +68,14 @@ router.post("/signup", isLoggedOut, (req, res) => {
         return User.create({
           username,
           password: hashedPassword,
+          name,
+          email
         });
       })
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/profile");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -93,7 +96,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
-router.get("/login", isLoggedOut, (req, res) => {
+router.get("/login", isLoggedOut,(req, res) => {
   res.render("auth/login");
 });
 
@@ -102,7 +105,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   if (!username) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Please provide your username.",
+      errorMessage: "Por favor complete todos los campos",
     });
   }
 
@@ -110,7 +113,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // - either length based parameters or we check the strength of a password
   if (password.length < 8) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Tu password debe contener 8 caracteres como mínimo",
     });
   }
 
@@ -120,7 +123,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       // If the user isn't found, send the message that user provided wrong credentials
       if (!user) {
         return res.status(400).render("auth/login", {
-          errorMessage: "Wrong credentials.",
+          errorMessage: "No se encontró usuario",
         });
       }
 
@@ -128,12 +131,12 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       bcrypt.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res.status(400).render("auth/login", {
-            errorMessage: "Wrong credentials.",
+            errorMessage: "Password incorrecto",
           });
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.redirect("/profile");
       });
     })
 
