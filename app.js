@@ -44,8 +44,9 @@ app.use('/', eventCreate);
 
 
 // i also need a route to change profile info 
-const changeProfile = require('./routes/changeProfile.routes');
-app.use('/', changeProfile)
+const changeProfilePic = require('./routes/changeProfilePic.routes');
+app.use('/', changeProfilePic)
+
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

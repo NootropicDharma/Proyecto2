@@ -19,7 +19,7 @@
 
 <div class="divIndexProfile">
     <div class="divProfile">
-        <img src={{Avatar}}/>
+        <img src="{{Avatar}}"/>
         <h2>{{username}}</h2>
         <p>Nombre <br>{{name}}</p>
         <p>Email <br>{{email}}</p>
@@ -30,26 +30,13 @@
 
 </div>
 
-<h4>Upload New Avatar</h4>
-<div class="row">
-    <div class="upload">
-        <form action="/profile" method="post" enctype="multipart/form-data"> 
-            <div class="form-group">
-                <label>Image:
-                <input type="file" name="profile-cover-image"  />
-                </label>
-            </div>
-    
-            <button type="submit" class="btn btn-primary">Create</button>
-        </form>
-    </div>
-</div>
 
 
 
 
 
-    <button class="block"><a href="/profile" style="text-decoration:none" > start a new event </a></button>
+
+    <button class="block"><a href="/foto/create" style="text-decoration:none" > changePic </a></button>
 
 
 

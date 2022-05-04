@@ -14,8 +14,14 @@ router.get('/', isLoggedIn, (req, res)=>{
                 favoritePlace,
                 myEvents,
                 Avatar
-                }
-        res.render('profile/userProfile', user)
+        }
+        User.find({username})
+        .then(user=>{
+                res.render('profile/userProfile', user[0])
+                console.log(user)
+
+        })
+        .catch(console.log())
 })
 
 router.post("/", (req, res) => {
@@ -26,6 +32,8 @@ router.post("/", (req, res) => {
                 })
                 .catch(console.log)
         });
+
+
 
 
 
